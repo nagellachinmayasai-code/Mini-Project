@@ -1,0 +1,8 @@
+{
+  "name": "Remix: Resume Screening \u0026 Applicant Tracking System",
+  "description": "A professional full-stack platform for recruiters to screen resumes, track rankings against job descriptions, and view talent analytics using Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
