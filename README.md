@@ -1,44 +1,20 @@
-# AI-Powered Resume Screening and Applicant Tracking System (ATS)
+<div align="center">
+<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
+</div>
 
-## Overview
+# Run and deploy your AI Studio app
 
-The AI-Powered Resume Screening and Applicant Tracking System (ATS) is a full-stack web application designed to streamline the recruitment process. The system enables recruiters to manage job postings, upload resumes, analyze candidate profiles, and rank applicants based on their suitability for a given role.
+This contains everything you need to run your app locally.
 
-## Features
+View your app in AI Studio: https://ai.studio/apps/9e653805-a492-454b-9e6d-b400dfd6cfb0
 
-* Recruiter Registration and Login
-* Job Description Management
-* Resume Upload and Parsing
-* ATS Score Generation
-* Skill Matching and Gap Analysis
-* Candidate Ranking and Filtering
-* Application Status Tracking
-* Recruitment Analytics Dashboard
-* Candidate Search and Management
+## Run Locally
 
-## Technologies Used
+**Prerequisites:**  Node.js
 
-* React
-* TypeScript
-* Node.js
-* Express.js
-* Tailwind CSS
-* Gemini API
-* JSON-based Data Storage
 
-## Installation
-
-1. Clone the repository.
-2. Install dependencies:
-   npm install
-3. Configure environment variables.
-4. Start the application:
-   npm run dev
-
-## Project Objective
-
-To assist recruiters in efficiently screening candidates by automating resume analysis, skill matching, and candidate evaluation.
-
-## Author
-
-Nagella Chinmaya Sai
+1. Install dependencies:
+   `npm install`
+2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
+3. Run the app:
+   `npm run dev`

@@ -46,8 +46,16 @@ export default function App() {
       setError('');
       try {
         const [jobsRes, candidatesRes] = await Promise.all([
-          fetch('/api/jobs'),
-          fetch('/api/candidates')
+          fetch('/api/jobs', {
+            headers: {
+              'Authorization': `Bearer ${user.token}`
+            }
+          }),
+          fetch('/api/candidates', {
+            headers: {
+              'Authorization': `Bearer ${user.token}`
+            }
+          })
         ]);
 
         if (!jobsRes.ok || !candidatesRes.ok) {

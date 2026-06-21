@@ -68,8 +68,8 @@ export default function UploadView({
 
   const validateAndSetFile = (selectedFile: File) => {
     const ext = selectedFile.name.split('.').pop()?.toLowerCase();
-    if (ext !== 'pdf' && ext !== 'txt' && ext !== 'docx') {
-      setError('Unsupported file type. Please upload PDF, DOCX or TXT.');
+    if (ext !== 'pdf') {
+      setError('Please upload a PDF resume.');
       return;
     }
     setFile(selectedFile);
@@ -109,27 +109,11 @@ export default function UploadView({
       };
 
       if (file) {
-        const ext = file.name.split('.').pop()?.toLowerCase();
-        
-        if (ext === 'pdf') {
-          setStatusMessage('Processing PDF structure...');
-          setProgress(35);
-          const base64Data = await getBase64(file);
-          body.base64File = base64Data;
-          body.fileMimeType = 'application/pdf';
-        } else if (ext === 'txt') {
-          setStatusMessage('Streaming plain text lines...');
-          setProgress(35);
-          const text = await file.text();
-          body.fallbackText = text;
-        } else {
-          // Fallback or custom DOCX reading mockup
-          setStatusMessage('Indexing DOCX token catalogs...');
-          setProgress(35);
-          // For sandbox simplicity of .docx, we can simulate sending fallback text
-          // or use its file text if available.
-          body.fallbackText = `DOCX FILE NAME: ${file.name}\nExtracted text simulation. Standard docx processing.\nExpertise in React, Node, REST API architecture.`;
-        }
+        setStatusMessage('Processing PDF structure...');
+        setProgress(35);
+        const base64Data = await getBase64(file);
+        body.base64File = base64Data;
+        body.fileMimeType = 'application/pdf';
       } else {
         setStatusMessage('Extracting pasted rich-text clipboard...');
         setProgress(35);
@@ -139,10 +123,21 @@ export default function UploadView({
       setStatusMessage('Queuing analysis to Gemini 3.5 Flash inside sandbox...');
       setProgress(55);
 
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       // Trigger server-side analysis
       const response = await fetch('/api/analyze-resume', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify(body)
       });
 
@@ -241,7 +236,7 @@ export default function UploadView({
                 ref={fileInputRef}
                 type="file"
                 className="hidden"
-                accept=".pdf,.txt,.docx"
+                accept=".pdf"
                 onChange={handleFileChange}
               />
 
@@ -259,7 +254,7 @@ export default function UploadView({
               ) : (
                 <div className="space-y-1">
                   <h3 className="text-xs font-bold text-slate-800 font-display">Drag & Drop Resume</h3>
-                  <p className="text-[10.5px] text-slate-400">Supports PDF, DOCX, or plain TXT files</p>
+                  <p className="text-[10.5px] text-slate-400">Supports PDF files</p>
                   <p className="text-[10px] text-indigo-500 font-semibold pt-1">Or click to browse standard local directories</p>
                 </div>
               )}
@@ -359,7 +354,7 @@ export default function UploadView({
                 <span className="w-5 h-5 rounded-full bg-indigo-50 text-indigo-600 flex items-center justify-center text-[10px] font-bold shrink-0">2</span>
                 <div>
                   <span className="font-bold text-slate-700 block">Provide Digital Files</span>
-                  Supports rich PDF directories, DOCX systems or plain-text clipboard extractions.
+                  Supports PDF files or plain-text clipboard extractions.
                 </div>
               </div>
 

@@ -84,9 +84,20 @@ export default function JobsView({
     }
 
     try {
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       const response = await fetch('/api/jobs', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({
           title,
           department,
@@ -131,9 +142,20 @@ export default function JobsView({
 
     setError('');
     try {
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       const response = await fetch(`/api/jobs/${editingJob.id}`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({
           title,
           department,
@@ -170,7 +192,20 @@ export default function JobsView({
   const handleConfirmDelete = async (id: string) => {
     setJobToDelete(null);
     try {
-      const response = await fetch(`/api/jobs/${id}`, { method: 'DELETE' });
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
+      const response = await fetch(`/api/jobs/${id}`, { 
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Failed to delete job.');
       

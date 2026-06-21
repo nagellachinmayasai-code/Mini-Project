@@ -1,5 +1,6 @@
 import express from 'express';
 import path from 'path';
+import fs from 'fs';
 import { GoogleGenAI, Type } from '@google/genai';
 import { db } from './server/db';
 import { Candidate, ResumeAnalysis, MatchBreakdown, JobDescription } from './src/types';
@@ -7,10 +8,9 @@ import { cleanAndCategorizeSkills, calculateValidatedMatchScores } from './src/u
 import dotenv from 'dotenv';
 import { createServer as createViteServer } from 'vite';
 // @ts-ignore
-import { createRequire } from 'module';
-const require = createRequire(import.meta.url);
-const pdf = require('pdf-parse');
-const mammoth = require('mammoth');
+import pdf from 'pdf-parse/lib/pdf-parse.js';
+// @ts-ignore
+import mammoth from 'mammoth';
 
 dotenv.config();
 
@@ -31,6 +31,27 @@ const ai = new GoogleGenAI({
     }
   }
 });
+
+// Helper to extract authenticated recruiter ID from Authorization header
+const getAuthenticatedUserId = (req: any): string | null => {
+  const authHeader = req.headers.authorization;
+  if (!authHeader) return null;
+
+  let token = authHeader.trim();
+  if (token.startsWith('Bearer ')) {
+    token = token.slice(7);
+  }
+
+  if (token.startsWith('token-')) {
+    const userId = token.slice(6);
+    // Verify that the user actually exists in the database
+    const users = db.getUsers();
+    if (users.some(u => u.id === userId)) {
+      return userId;
+    }
+  }
+  return null;
+};
 
 // Middleware for simple custom Token/Session authorization
 // Front-end will send standard authorization headers or simulate the recruiter session
@@ -90,7 +111,10 @@ app.post('/api/auth/login', (req, res) => {
 // ================= JOB MANAGEMENT ROUTES =================
 
 app.get('/api/jobs', (req, res) => {
-  res.json(db.getJobDescriptions());
+  const recruiterId = getAuthenticatedUserId(req);
+  const jobs = db.getJobDescriptions();
+  const filteredJobs = jobs.filter(j => !j.recruiterId || j.recruiterId === recruiterId);
+  res.json(filteredJobs);
 });
 
 app.post('/api/jobs', (req, res) => {
@@ -100,8 +124,11 @@ app.post('/api/jobs', (req, res) => {
     return res.status(400).json({ error: 'Missing required fields for job creation.' });
   }
 
+  const recruiterId = getAuthenticatedUserId(req);
+
   const newJob: JobDescription = {
     id: `job-${Date.now()}`,
+    recruiterId: recruiterId || undefined,
     title: title.trim(),
     department: department.trim(),
     location: location.trim(),
@@ -119,12 +146,18 @@ app.post('/api/jobs', (req, res) => {
 });
 
 app.put('/api/jobs/:id', (req, res) => {
-  const { title, department, location, type, experienceRequired, status, description, keySkills, requirements } = req.body;
+  const recruiterId = getAuthenticatedUserId(req);
   const existingJob = db.getJob(req.params.id);
 
   if (!existingJob) {
     return res.status(404).json({ error: 'Job description not found.' });
   }
+
+  if (existingJob.recruiterId && existingJob.recruiterId !== recruiterId) {
+    return res.status(403).json({ error: 'You do not own this job description.' });
+  }
+
+  const { title, department, location, type, experienceRequired, status, description, keySkills, requirements } = req.body;
 
   const updatedJob: JobDescription = {
     ...existingJob,
@@ -144,6 +177,13 @@ app.put('/api/jobs/:id', (req, res) => {
 });
 
 app.delete('/api/jobs/:id', (req, res) => {
+  const recruiterId = getAuthenticatedUserId(req);
+  const existingJob = db.getJob(req.params.id);
+
+  if (existingJob && existingJob.recruiterId && existingJob.recruiterId !== recruiterId) {
+    return res.status(403).json({ error: 'You do not own this job description.' });
+  }
+
   db.deleteJobDescription(req.params.id);
   res.json({ success: true, message: 'Job description deleted successfully.' });
 });
@@ -151,7 +191,8 @@ app.delete('/api/jobs/:id', (req, res) => {
 // ================= TALENT INSIGHTS & ANALYTICS OUTLINE =================
 
 app.get('/api/dashboard-insights', (req, res) => {
-  const candidates = db.getCandidates();
+  const recruiterId = getAuthenticatedUserId(req);
+  const candidates = db.getCandidates().filter(c => !c.recruiterId || c.recruiterId === recruiterId);
   const processed = candidates.filter(c => c.analysis && c.analysis.atsScore !== undefined);
   const total = candidates.length;
   const processedCount = processed.length;
@@ -173,10 +214,24 @@ app.get('/api/dashboard-insights', (req, res) => {
 // ================= CANDIDATE PORTAL & AI ANALYSIS API =================
 
 app.get('/api/candidates', (req, res) => {
-  res.json(db.getCandidates());
+  const recruiterId = getAuthenticatedUserId(req);
+  const candidates = db.getCandidates();
+  const filteredCandidates = candidates.filter(c => !c.recruiterId || c.recruiterId === recruiterId);
+  res.json(filteredCandidates);
 });
 
 app.put('/api/candidates/:id/status', (req, res) => {
+  const recruiterId = getAuthenticatedUserId(req);
+  const existingCandidate = db.getCandidate(req.params.id);
+
+  if (!existingCandidate) {
+    return res.status(404).json({ error: 'Candidate not found.' });
+  }
+
+  if (existingCandidate.recruiterId && existingCandidate.recruiterId !== recruiterId) {
+    return res.status(403).json({ error: 'You do not own this candidate record.' });
+  }
+
   const { status } = req.body;
   if (!status || !['New', 'Screened', 'Shortlisted', 'Rejected'].includes(status)) {
     return res.status(400).json({ error: 'Invalid candidate status update.' });
@@ -188,6 +243,13 @@ app.put('/api/candidates/:id/status', (req, res) => {
 });
 
 app.delete('/api/candidates/:id', (req, res) => {
+  const recruiterId = getAuthenticatedUserId(req);
+  const existingCandidate = db.getCandidate(req.params.id);
+
+  if (existingCandidate && existingCandidate.recruiterId && existingCandidate.recruiterId !== recruiterId) {
+    return res.status(403).json({ error: 'You do not own this candidate record.' });
+  }
+
   db.deleteCandidate(req.params.id);
   res.json({ success: true, message: 'Candidate tracking record removed.' });
 });
@@ -299,7 +361,7 @@ async function extractTextLocally(
       // Try dyamic import as secondary fallback
       if (typeof pdfParser !== 'function') {
         try {
-          const dynamicPdf = await import('pdf-parse');
+          const dynamicPdf = await import('pdf-parse/lib/pdf-parse.js');
           let tempParser = dynamicPdf;
           while (tempParser && typeof tempParser !== 'function' && (tempParser as any).default) {
             tempParser = (tempParser as any).default;
@@ -313,11 +375,13 @@ async function extractTextLocally(
       }
 
       if (typeof pdfParser !== 'function') {
-        // If still not a function, we must use require('pdf-parse') dynamically inside trial
+        // If still not a function, we must use require('pdf-parse') dynamically inside trial if require exists
         try {
-          const p = require('pdf-parse');
-          if (typeof p === 'function') pdfParser = p;
-          else if (p && typeof p.default === 'function') pdfParser = p.default;
+          if (typeof require !== 'undefined') {
+            const p = require('pdf-parse/lib/pdf-parse.js');
+            if (typeof p === 'function') pdfParser = p;
+            else if (p && typeof p.default === 'function') pdfParser = p.default;
+          }
         } catch (rErr) {
           console.error('require pdf-parse failed:', rErr);
         }
@@ -347,12 +411,12 @@ async function extractTextLocally(
     (fileMimeType && fileMimeType.includes('word'))
   ) {
     try {
-      let mammothObj = mammoth;
+      let mammothObj: any = mammoth;
       if (mammothObj && mammothObj.default) {
         mammothObj = mammothObj.default;
       }
       // @ts-ignore
-      const parsed = await mammothObj.extractRawText({ buffer });
+      const parsed = await mammothObj.convertToMarkdown({ buffer });
       const text = parsed.value || '';
       const letterMatches = text.match(/[a-zA-Z]/g);
       if (!text || !letterMatches || letterMatches.length < 3) {
@@ -882,6 +946,10 @@ app.post('/api/analyze-resume', async (req, res) => {
     console.warn('Gemini API Key is not configured. Redirecting to local fallback parsing system.');
     try {
       const fallbackCandidate = await runLocalFallbackParser(activeJob, jobId, base64File, fileMimeType, fileName, fallbackText);
+      const recruiterId = getAuthenticatedUserId(req);
+      if (recruiterId) {
+        fallbackCandidate.recruiterId = recruiterId;
+      }
       db.addCandidate(fallbackCandidate);
       return res.json(fallbackCandidate);
     } catch (err: any) {
@@ -1151,6 +1219,11 @@ Ensure returned payload is strict, parsable JSON. Do not include markdown wraps 
       }
     };
 
+    const recruiterId = getAuthenticatedUserId(req);
+    if (recruiterId) {
+      newCandidate.recruiterId = recruiterId;
+    }
+
     // Save candidate to DB
     db.addCandidate(newCandidate);
     res.json(newCandidate);
@@ -1159,6 +1232,10 @@ Ensure returned payload is strict, parsable JSON. Do not include markdown wraps 
     console.log('Gemini API query completed with fallback state. Silently invoking local document parser:', error?.message || error);
     try {
       const fallbackCandidate = await runLocalFallbackParser(activeJob, jobId, base64File, fileMimeType, fileName, fallbackText);
+      const recruiterId = getAuthenticatedUserId(req);
+      if (recruiterId) {
+        fallbackCandidate.recruiterId = recruiterId;
+      }
       db.addCandidate(fallbackCandidate);
       return res.json(fallbackCandidate);
     } catch (err: any) {
@@ -1174,7 +1251,10 @@ Ensure returned payload is strict, parsable JSON. Do not include markdown wraps 
 const startServer = async () => {
   if (process.env.NODE_ENV !== 'production') {
     const vite = await createViteServer({
-      server: { middlewareMode: true },
+      server: {
+        middlewareMode: true,
+        hmr: false,
+      },
       appType: 'spa',
     });
     app.use(vite.middlewares);

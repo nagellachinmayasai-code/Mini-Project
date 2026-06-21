@@ -134,9 +134,20 @@ export default function CandidateAnalysisView({
   // Compute status badge styles for local controls
   const handleStatusUpdate = async (newStatus: Candidate['status']) => {
     try {
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       const response = await fetch(`/api/candidates/${candidate.id}/status`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ status: newStatus })
       });
       if (!response.ok) throw new Error('Unresolved update.');
@@ -155,8 +166,19 @@ export default function CandidateAnalysisView({
   const handleConfirmDelete = async () => {
     setShowDeleteConfirm(false);
     try {
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       const response = await fetch(`/api/candidates/${candidate.id}`, {
-        method: 'DELETE'
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
       });
       if (!response.ok) throw new Error('Deletion failed.');
       displaySuccess('Candidate record successfully removed from storage.');

@@ -1,0 +1,612 @@
+{
+  "users": [
+    {
+      "id": "user-1781966340096",
+      "email": "Chinnuuuu2108@gmail.com",
+      "name": "chinmay",
+      "passwordHash": "iamchinnu_21",
+      "createdAt": "2026-06-20T14:39:00.096Z"
+    },
+    {
+      "id": "user-1781966408006",
+      "email": "recruiter@hightech.io",
+      "name": "Sarah Jenkins",
+      "passwordHash": "demopass123",
+      "createdAt": "2026-06-20T14:40:08.006Z"
+    },
+    {
+      "id": "user-1781966469312",
+      "email": "chinmaya@gmail.com",
+      "name": "nikmmi",
+      "passwordHash": "chinmaya@21",
+      "createdAt": "2026-06-20T14:41:09.312Z"
+    }
+  ],
+  "jobDescriptions": [
+    {
+      "id": "job-1781967758681",
+      "recruiterId": "user-1781966340096",
+      "title": "QA Engineer (Owner chinmay)",
+      "department": "QA",
+      "location": "Remote",
+      "type": "Full-time",
+      "experienceRequired": "2 years",
+      "status": "Active",
+      "description": "Test isolation features of recruiter role",
+      "keySkills": [],
+      "requirements": [],
+      "createdAt": "2026-06-20T15:02:38.681Z"
+    },
+    {
+      "id": "job-1781967584977",
+      "title": "QA Engineer (Owner chinmay)",
+      "department": "QA",
+      "location": "Remote",
+      "type": "Full-time",
+      "experienceRequired": "2 years",
+      "status": "Active",
+      "description": "Test isolation features of recruiter role",
+      "keySkills": [],
+      "requirements": [],
+      "createdAt": "2026-06-20T14:59:44.977Z"
+    },
+    {
+      "id": "job-1781967551812",
+      "title": "QA Engineer (Owner chinmay)",
+      "department": "QA",
+      "location": "Remote",
+      "type": "Full-time",
+      "experienceRequired": "2 years",
+      "status": "Active",
+      "description": "Test isolation features of recruiter role",
+      "keySkills": [],
+      "requirements": [],
+      "createdAt": "2026-06-20T14:59:11.812Z"
+    },
+    {
+      "id": "job-1781967503828",
+      "title": "QA Engineer (Owner chinmay)",
+      "department": "QA",
+      "location": "Remote",
+      "type": "Full-time",
+      "experienceRequired": "2 years",
+      "status": "Active",
+      "description": "Test isolation features of recruiter role",
+      "keySkills": [],
+      "requirements": [],
+      "createdAt": "2026-06-20T14:58:23.828Z"
+    },
+    {
+      "id": "job-1",
+      "title": "Lead Full-Stack Engineer",
+      "department": "Engineering",
+      "location": "San Francisco, CA (Remote)",
+      "type": "Remote",
+      "experienceRequired": "5+ years",
+      "status": "Active",
+      "description": "We are seeking a Lead Full-Stack Engineer to build and scale our multi-tenant SaaS application pipelines. You will own the core architecture, design cloud services, and lead our software development sprint cycles.",
+      "keySkills": [
+        "React",
+        "Node.js",
+        "TypeScript",
+        "Express",
+        "PostgreSQL",
+        "System Architecture",
+        "AI Integration",
+        "Docker"
+      ],
+      "requirements": [
+        "Over 5 years of software development experience with modern JS/TS frameworks.",
+        "Proven track record of designing and scaling robust architectural frameworks.",
+        "Deep, hands-on production experience with React 18/19 and server-side Express implementations.",
+        "Familiarity with cloud hosting, CI/CD pipelines, and microservices engines."
+      ],
+      "createdAt": "2026-06-10T00:00:00.000Z"
+    },
+    {
+      "id": "job-2",
+      "title": "Senior Product Designer",
+      "department": "Design",
+      "location": "New York, NY",
+      "type": "Full-time",
+      "experienceRequired": "4+ years",
+      "status": "Active",
+      "description": "We are looking for a Senior Product Designer who is passionate about creating elegant, highly intuitive, and accessible user interfaces. You will work directly with our recruiters and developers to spearhead standard visual solutions.",
+      "keySkills": [
+        "Figma",
+        "Design Systems",
+        "User Research",
+        "Prototyping",
+        "UI/UX Design",
+        "Tailwind CSS",
+        "Wireframing",
+        "Typography"
+      ],
+      "requirements": [
+        "4+ years designing production-level SaaS platforms or consumer apps.",
+        "A portfolio showcasing complete UX discovery flows, wireframes, and high-fidelity mockups.",
+        "Exceptional grasp of design system practices, prototyping interactions, and clean spacing concepts.",
+        "Basic front-end familiarity (Tailwind / HTML / CSS) to assist developers in seamless hand-offs."
+      ],
+      "createdAt": "2026-06-12T00:00:00.000Z"
+    },
+    {
+      "id": "job-3",
+      "title": "Data Scientist - AI Solutions",
+      "department": "Engineering",
+      "location": "San Francisco, CA (Hybrid)",
+      "type": "Full-time",
+      "experienceRequired": "3+ years",
+      "status": "Active",
+      "description": "Join our AI applications squad to pioneer state-of-the-art intelligent processing pipelines. You will build and fine-tune models, leverage Large Language Models (LLMs), and run performance telemetry.",
+      "keySkills": [
+        "Python",
+        "Machine Learning",
+        "NLP",
+        "Large Language Models",
+        "SQL",
+        "PyTorch",
+        "Data Science",
+        "Data Engineering",
+        "TensorFlow"
+      ],
+      "requirements": [
+        "3+ years of experience analyzing data stacks and training machine learning algorithms.",
+        "Practical expertise utilizing LLMs (Gemini, Claude, GPT) and developing custom vector spaces.",
+        "Highly pro-efficient with Python (Pandas, NumPy, Scikit-Learn, PyTorch).",
+        "Strong relational data modeling skills and experience with big data clusters."
+      ],
+      "createdAt": "2026-06-15T00:00:00.000Z"
+    }
+  ],
+  "candidates": [
+    {
+      "id": "cand-1781967304475",
+      "name": "R.L Varshithaneha",
+      "email": "varshithaneharl@gmail.com",
+      "phone": "9347780820",
+      "activeJobId": "job-1",
+      "status": "New",
+      "uploadedAt": "2026-06-20T14:55:04.475Z",
+      "resumeFileName": "Varshithaneha_resume.pdf",
+      "resumeText": "R.L Varshithaneha \n  Phone: 9347780820 \n  Email: varshithaneharl@gmail.com  \n  GitHub:https://github.com/22HR1A0590 \nProfessional Summary \nMotivated Cloud & DevOps fresher with hands-on training in AWS and Azure. Skilled in Linux administration, \ncontainerization, and CI/CD pipelines. Seeking an entry-level Cloud/DevOps Engineer role to contribute to scalable and \nautomated infrastructure solutions. \nTechnical Skills \nCloud Platforms: AWS (EC2, S3, IAM, VPC, RDS, Lambda, Auto Scaling, CloudWatch) \nAzure :VM, VNet, Storage, Azure AD \nDevOps Tools: Docker, Kubernetes, Jenkins, Terraform, Git & GitHub \nOperating System: Linux (User management, File permissions, Networking, Shell scripting) \nProgramming languages:Java & Python  \nProjects \n  Multi-Tier Architecture on AWS  Designed secure 3-tier architecture using EC2, VPC, Auto Scaling & Load \nBalancer. Monitored performance using CloudWatch and implemented using Terraform. \n  Access Controlled Privacy Preserving Search on Secret-Shared Outsourced Data - Built a secure search \nsystem for encrypted cloud data using secret sharing techniques to protect sensitive information. Implemented \naccess control to ensure only authorized users can retrieve data, and enabled privacy-preserving keyword search \nwithout exposing data or queries. Technologies: Cryptography, Cloud Computing, Access Control \nInternships \nCloud Institution  Cloud & DevOps Intern 19.01.2026  Present \n  Deployed AWS infrastructure (EC2, S3, IAM, VPC) \n  Automated provisioning using Terraform & Ansible \n  Built CI/CD pipelines and managed Docker containers \nSkill Dzire  Full Stack Java Intern  12.04.2025  12.06.2025 \n  Completed a 2-month internship focused on Full Stack Java development gained hands-on experience in building \nweb applications using front-end and back-end technologies. \n  Worked on developing, testing, and integrating application components while strengthening skills in Java, \ndatabases, and web development concepts.  \nPersonal Skills \n  Good verbal and written communication skills \n  Good Problem Solving \n  Adaptable to work environment \nEducation \n  B.Tech in Computer Science Engineering \nMother Theresa Institute of Engineering and Technology  \n  Intermediate (MPC  Mathematics, Physics, Chemistry) \nMother Theresa Junior College  \n  10th Standard (SSC)  \n  Universal High School",
+      "analysis": {
+        "atsScore": 22,
+        "skillsMatch": 13,
+        "keywordMatch": 20,
+        "experienceMatch": 5,
+        "educationMatch": 100,
+        "matchBreakdown": {
+          "skills": 13,
+          "keywords": 20,
+          "experience": 5,
+          "education": 100
+        },
+        "skills": [
+          "Java",
+          "Python",
+          "Docker",
+          "Kubernetes",
+          "Jenkins",
+          "Terraform"
+        ],
+        "education": [
+          "B.Tech in Computer Science Engineering, Mother Theresa Institute of Engineering and Technology",
+          "Intermediate (MPC - Mathematics, Physics, Chemistry), Mother Theresa Junior College",
+          "10th Standard (SSC), Universal High School"
+        ],
+        "projects": [
+          "Multi-Tier Architecture on AWS",
+          "Access Controlled Privacy Preserving Search on Secret-Shared Outsourced Data"
+        ],
+        "certifications": [],
+        "experience": [
+          "Cloud & DevOps Intern at Cloud Institution (19.01.2026 - Present)",
+          "Full Stack Java Intern at Skill Dzire (12.04.2025 - 12.06.2025)"
+        ],
+        "softSkills": [],
+        "strengths": [
+          "Strong foundation in Cloud platforms (AWS, Azure) and modern Infrastructure as Code (Terraform, Docker)",
+          "B.Tech degree in Computer Science Engineering provides strong theoretical backing",
+          "Active internship experience in both DevOps automation and Full-Stack Java development"
+        ],
+        "weaknesses": [
+          "Lacks the required 5+ years of professional engineering experience; currently a fresher/intern",
+          "Missing core modern JavaScript/TypeScript framework skills (React, Node.js, Express, TypeScript) listed as critical for this Lead role"
+        ],
+        "missingSkills": [
+          "React",
+          "Node.js",
+          "TypeScript",
+          "Express",
+          "PostgreSQL",
+          "System Architecture",
+          "AI Integration"
+        ],
+        "improvementSuggestions": [
+          "Acquire production-level experience building full-stack applications using React, Node.js, and TypeScript.",
+          "Target entry-level Cloud Engineer or Associate DevOps roles rather than Lead-level Full-Stack positions to better match current career tenure.",
+          "Develop and showcase projects that feature relational database design (PostgreSQL) and SaaS system architectures."
+        ],
+        "skillsCitations": [
+          "Cloud Platforms: AWS (EC2, S3, IAM, VPC, RDS, Lambda, Auto Scaling, CloudWatch)",
+          "Azure :VM, VNet, Storage, Azure AD",
+          "DevOps Tools: Docker, Kubernetes, Jenkins, Terraform, Git & GitHub",
+          "Operating System: Linux (User management, File permissions, Networking, Shell scripting)",
+          "Programming languages:Java & Python"
+        ],
+        "educationCitations": [
+          "B.Tech in Computer Science Engineering \nMother Theresa Institute of Engineering and Technology",
+          "Intermediate (MPC  Mathematics, Physics, Chemistry) \nMother Theresa Junior College",
+          "10th Standard (SSC)  \nUniversal High School"
+        ],
+        "projectsCitations": [
+          "Multi-Tier Architecture on AWS  Designed secure 3-tier architecture using EC2, VPC, Auto Scaling & Load \nBalancer. Monitored performance using CloudWatch and implemented using Terraform.",
+          "Access Controlled Privacy Preserving Search on Secret-Shared Outsourced Data - Built a secure search \nsystem for encrypted cloud data using secret sharing techniques to protect sensitive information. Implemented \naccess control to ensure only authorized users can retrieve data, and enabled privacy-preserving keyword search \nwithout exposing data or queries. Technologies: Cryptography, Cloud Computing, Access Control"
+        ],
+        "certificationsCitations": [],
+        "experienceCitations": [
+          "Cloud Institution  Cloud & DevOps Intern 19.01.2026  Present",
+          "Skill Dzire  Full Stack Java Intern  12.04.2025  12.06.2025"
+        ],
+        "summary": [
+          "Motivated Cloud & DevOps fresher with hands-on training in AWS and Azure. Skilled in Linux administration, containerization, and CI/CD pipelines. Seeking an entry-level Cloud/DevOps Engineer role to contribute to scalable and automated infrastructure solutions."
+        ],
+        "summaryCitations": [
+          "Motivated Cloud & DevOps fresher with hands-on training in AWS and Azure. Skilled in Linux administration, \ncontainerization, and CI/CD pipelines. Seeking an entry-level Cloud/DevOps Engineer role to contribute to scalable and \nautomated infrastructure solutions."
+        ]
+      }
+    },
+    {
+      "id": "cand-1781967244149",
+      "name": "NAGELLA CHINMAYA SAI",
+      "email": "nagellachinmayasai@gmail.com",
+      "phone": "6302746763",
+      "activeJobId": "job-1",
+      "status": "New",
+      "uploadedAt": "2026-06-20T14:54:04.149Z",
+      "resumeFileName": "NAGELLA CHINMAYA SAI_resume.pdf",
+      "resumeText": "NAGELLA CHINMAYA SAI \nTirupati, India  517501 | mobile: 6302746763 |  nagellachinmayasai@gmail.com \nLinkedIn: https://www.linkedin.com/in/chinmaya-sai-nagella-10b132332 | \n  GitHub:  https://github.com/nagellachinmayasai-code \nPROFESSIONAL SUMMARY \nComputer Science undergraduate with a strong academic record and hands-on experience in \ndeveloping real- time and web-based applications. Skilled in problem-solving, debugging, and \nfundamental programming concepts. Worked on projects including a real-time collaborative coding \nplatform, gaining exposure to system design and teamwork. Interested in applying technical \nknowledge and learning through practical experience in a professional environment. \nTECHNICAL SKILLS \n  Languages : Java, Python, C (Basics)  Web : HTML, CSS \n  Database : SQL, DBMS  Tools : GitHub, VS Code \nMINI PROJECTS \n  Real-Time Collaborative Coding Platform  \nDeveloped a multi-user real-time code editor using WebSockets (Socket.io) with live sync, chat, and \nsession control. Focused on concurrency and low-latency performance. \n  DebugMate \nDeveloped a debugging-focused application to simplify error detection and improve development \nworkflow efficiency. Designed the interface for better usability and streamlined debugging processes.  \n  ChainPulse AI  AI-Based Prototype \nDeveloped an AI-based prototype focused on improving intelligent workflow and user interaction. \nDesigned the interface with emphasis on usability, accessibility, and real-time responsiveness. \nWorked on integrating AI-oriented concepts and collaborative features to enhance user experience. \nEDUCATION \nBachelor of Technology  Computer Science and Engineering 2023 2027 | CGPA: \n9.25 Annamacharya Institute of Technology and Sciences, Tirupati \nIntermediate (MPC) 2021 2023 | 954/1000 \nSri Chaithanya Girls Junior College, Tirupati \nSecondary School Certificate (SSC) 2016 2021 | \n600/600 Sri Geethanjali E.M School, Tirupati \nINTERNSHIP \nData Analytics Virtual Internship \nApexPlanet Software Pvt. Ltd. \n  Worked on data analytics concepts and project-based tasks. \n  Gained exposure to data handling, visualization, and documentation. \n  Improved analytical thinking and problem-solving skills through virtual assignments. \nCERTIFICATIONS & ACCOMPLISHMENTS \n  Data Analytics Virtual Internship  ApexPlanet Software Pvt. Ltd. \n  Completed a 6-day Workshop on Generative AI \n  Maintained CGPA of 9.25 in B.Tech CSE",
+      "isLocalFallback": true,
+      "analysis": {
+        "atsScore": 53,
+        "skillsMatch": 13,
+        "keywordMatch": 74,
+        "experienceMatch": 85,
+        "educationMatch": 90,
+        "matchBreakdown": {
+          "skills": 13,
+          "keywords": 74,
+          "experience": 85,
+          "education": 90
+        },
+        "skills": [
+          "Python",
+          "Java",
+          "HTML",
+          "CSS",
+          "SQL",
+          "Git"
+        ],
+        "education": [
+          "Bachelor of Technology  Computer Science and Engineering 2023 2027 | CGPA:",
+          "9.25 Annamacharya Institute of Technology and Sciences, Tirupati",
+          "Intermediate (MPC) 2021 2023 | 954/1000",
+          "Sri Chaithanya Girls Junior College, Tirupati",
+          "Secondary School Certificate (SSC) 2016 2021 |",
+          "600/600 Sri Geethanjali E.M School, Tirupati"
+        ],
+        "projects": [
+          "GitHub:  https://github.com/nagellachinmayasai-code"
+        ],
+        "certifications": [
+          "Secondary School Certificate (SSC) 2016 2021 |"
+        ],
+        "experience": [
+          "Data Analytics Virtual Internship",
+          "ApexPlanet Software Pvt. Ltd.",
+          "Worked on data analytics concepts and project-based tasks.",
+          "Gained exposure to data handling, visualization, and documentation.",
+          "Improved analytical thinking and problem-solving skills through virtual assignments.",
+          "CERTIFICATIONS & ACCOMPLISHMENTS"
+        ],
+        "softSkills": [
+          "Teamwork"
+        ],
+        "strengths": [
+          "Demonstrated technical proficiency across: Python, JAVA, HTML",
+          "Exhibits positive background markers aligning with modern technical delivery pipelines."
+        ],
+        "weaknesses": [
+          "Missing targeted exposure to job requirements: React, Node.js, TypeScript",
+          "Tenure structure requires further alignment confirmation for required levels.",
+          "Needs hands-on architectural verification during live technical panel screenings."
+        ],
+        "missingSkills": [
+          "React",
+          "Node.js",
+          "TypeScript",
+          "Express",
+          "PostgreSQL",
+          "System Architecture",
+          "AI Integration",
+          "Docker"
+        ],
+        "improvementSuggestions": [
+          "Optimize resume with explicit term matrices matching standard tech stack: React, Node.js, TypeScript, Express",
+          "Elaborate detail logs concerning technical impacts and production metrics",
+          "Highlight online repositories or active sandbox demos supporting core competencies"
+        ],
+        "skillsCitations": [
+          "Matched technical skill \"Python\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"JAVA\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"HTML\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"CSS\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"SQL\" in sentence/phrase: \"Database : SQL, DBMS  Tools : GitHub, VS Code\"",
+          "Matched technical skill \"Github\" in sentence/phrase: \"GitHub:  https://github.com/nagellachinmayasai-code\"",
+          "Matched technical skill \"Languages : Java\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"C (Basics)  Web : HTML\" in sentence/phrase: \"Languages : Java, Python, C (Basics)  Web : HTML, CSS\"",
+          "Matched technical skill \"Database : SQL\" in sentence/phrase: \"Database : SQL, DBMS  Tools : GitHub, VS Code\"",
+          "Matched technical skill \"DBMS  Tools : GitHub\" in sentence/phrase: \"Database : SQL, DBMS  Tools : GitHub, VS Code\"",
+          "Matched technical skill \"VS Code\" in sentence/phrase: \"Database : SQL, DBMS  Tools : GitHub, VS Code\"",
+          "Matched technical skill \"MINI PROJECTS\" in sentence/phrase: \"MINI PROJECTS\"",
+          "Matched technical skill \"REAL\" in sentence/phrase: \"developing real- time and web-based applications. Skilled in problem-solving, debugging, and\"",
+          "Matched technical skill \"Developed A Multi\" in sentence/phrase: \"Developed a multi-user real-time code editor using WebSockets (Socket.io) with live sync, chat, and\"",
+          "Matched technical skill \"User Real\" in sentence/phrase: \"Developed a multi-user real-time code editor using WebSockets (Socket.io) with live sync, chat, and\"",
+          "Matched technical skill \"CHAT\" in sentence/phrase: \"Developed a multi-user real-time code editor using WebSockets (Socket.io) with live sync, chat, and\"",
+          "Matched technical skill \"AND\" in sentence/phrase: \"Computer Science undergraduate with a strong academic record and hands-on experience in\"",
+          "Matched \"Latency Performance.\" based on technical vocabulary matching.",
+          "Matched technical skill \"DebugMate\" in sentence/phrase: \"DebugMate\"",
+          "Matched technical skill \"Developed A Debugging\" in sentence/phrase: \"Developed a debugging-focused application to simplify error detection and improve development\"",
+          "Matched technical skill \"ChainPulse AI  AI\" in sentence/phrase: \"ChainPulse AI  AI-Based Prototype\"",
+          "Matched technical skill \"Based Prototype\" in sentence/phrase: \"ChainPulse AI  AI-Based Prototype\"",
+          "Matched technical skill \"Developed An AI\" in sentence/phrase: \"Developed an AI-based prototype focused on improving intelligent workflow and user interaction.\"",
+          "Matched technical skill \"Accessibility\" in sentence/phrase: \"Designed the interface with emphasis on usability, accessibility, and real-time responsiveness.\"",
+          "Matched technical skill \"And Real\" in sentence/phrase: \"Designed the interface with emphasis on usability, accessibility, and real-time responsiveness.\"",
+          "Matched \"Time Responsiveness.\" based on technical vocabulary matching.",
+          "Matched technical skill \"Worked On Integrating AI\" in sentence/phrase: \"Worked on integrating AI-oriented concepts and collaborative features to enhance user experience.\""
+        ],
+        "educationCitations": [
+          "Matched academic credential in line: \"Bachelor of Technology  Computer Science and Engineering 2023 2027 | CGPA:\"",
+          "Matched academic credential in line: \"9.25 Annamacharya Institute of Technology and Sciences, Tirupati\"",
+          "Matched academic credential in line: \"Intermediate (MPC) 2021 2023 | 954/1000\"",
+          "Matched academic credential in line: \"Sri Chaithanya Girls Junior College, Tirupati\"",
+          "Matched academic credential in line: \"Secondary School Certificate (SSC) 2016 2021 |\"",
+          "Matched academic credential in line: \"600/600 Sri Geethanjali E.M School, Tirupati\""
+        ],
+        "projectsCitations": [
+          "Matched project profile in line: \"GitHub:  https://github.com/nagellachinmayasai-code\""
+        ],
+        "certificationsCitations": [
+          "Matched professional certification in line: \"Secondary School Certificate (SSC) 2016 2021 |\""
+        ],
+        "experienceCitations": [
+          "Matched work experience record in line: \"Data Analytics Virtual Internship\"",
+          "Matched work experience record in line: \"ApexPlanet Software Pvt. Ltd.\"",
+          "Matched work experience record in line: \"Worked on data analytics concepts and project-based tasks.\"",
+          "Matched work experience record in line: \"Gained exposure to data handling, visualization, and documentation.\"",
+          "Matched work experience record in line: \"Improved analytical thinking and problem-solving skills through virtual assignments.\"",
+          "Matched work experience record in line: \"CERTIFICATIONS & ACCOMPLISHMENTS\""
+        ],
+        "summary": [
+          "Computer Science undergraduate with a strong academic record and hands-on experience in",
+          "developing real- time and web-based applications. Skilled in problem-solving, debugging, and",
+          "fundamental programming concepts. Worked on projects including a real-time collaborative coding",
+          "platform, gaining exposure to system design and teamwork. Interested in applying technical",
+          "knowledge and learning through practical experience in a professional environment."
+        ],
+        "summaryCitations": [
+          "Matched Professional Summary in line: \"Computer Science undergraduate with a strong academic record and hands-on experience in\"",
+          "Matched Professional Summary in line: \"developing real- time and web-based applications. Skilled in problem-solving, debugging, and\"",
+          "Matched Professional Summary in line: \"fundamental programming concepts. Worked on projects including a real-time collaborative coding\"",
+          "Matched Professional Summary in line: \"platform, gaining exposure to system design and teamwork. Interested in applying technical\"",
+          "Matched Professional Summary in line: \"knowledge and learning through practical experience in a professional environment.\""
+        ]
+      }
+    },
+    {
+      "id": "cand-2",
+      "name": "Alex Mercer",
+      "email": "alex.mercer.dev@innovations.org",
+      "phone": "+1 (555) 892-0044",
+      "activeJobId": "job-1",
+      "status": "Rejected",
+      "uploadedAt": "2026-06-16T14:15:00.000Z",
+      "resumeFileName": "alex_mercer_resume.pdf",
+      "resumeText": "ALEX MERCER\nFull Stack Dev. 5 Years Experience. React, UI frameworks, Node.js, TS, Express.\nEmail: alex.mercer.dev@innovations.org | Phone: +1 (555) 892-0044\nSkills: React, React-native, Redux, Node.js, Express, JavaScript, TypeScript, Tailwind CSS, MongoDB, Git\n\nExperience:\nSenior Developer - DevSuite Labs (2022 - Present)\n- Developed responsive React dashboard layouts.\n- Formulated Express API endpoints serving over 50k active daily sessions.\nSoftware Specialist - WebStream Co (2021 - 2022)\n- Spearheaded visual overhauls using Tailwind CSS.\n\nEducation:\nBS in Computer Science, Ohio State University",
+      "analysis": {
+        "atsScore": 82,
+        "skillsMatch": 80,
+        "keywordMatch": 85,
+        "experienceMatch": 85,
+        "educationMatch": 80,
+        "matchBreakdown": {
+          "skills": 80,
+          "keywords": 85,
+          "experience": 85,
+          "education": 80
+        },
+        "skills": [
+          "React",
+          "Node.js",
+          "Express",
+          "JavaScript",
+          "TypeScript",
+          "Tailwind CSS",
+          "Redux",
+          "MongoDB",
+          "Git"
+        ],
+        "education": [
+          "BS in Computer Science, Ohio State University (2021)"
+        ],
+        "projects": [
+          "Responsive Analytics Board (React + ChartJS)",
+          "Cross-platform Mobile Booking App (React Native)"
+        ],
+        "certifications": [
+          "Certified React Native Expert"
+        ],
+        "experience": [
+          "Senior Developer at DevSuite Labs (2022 - Present): Crafted modular UI structures, migrated data endpoints to Express server context.",
+          "Software Specialist at WebStream Co (2021 - 2022): Integrated state management with Redux, implemented fluid mobile viewports."
+        ],
+        "softSkills": [
+          "Technical Problem Solving",
+          "Creative UI Adaptability",
+          "Active Communications"
+        ],
+        "strengths": [
+          "Solid senior-grade capabilities in client-side React architectures and Tailwind visual designs",
+          "Strong competence building unified REST structures and state models"
+        ],
+        "weaknesses": [
+          "Lacks standard relational database handling (primarily MongoDB, missing PostgreSQL)",
+          "No mentioned expertise with containerizing/managing services like Docker or cloud platform systems"
+        ],
+        "missingSkills": [
+          "PostgreSQL",
+          "Docker",
+          "System Architecture",
+          "AI Integration"
+        ],
+        "improvementSuggestions": [
+          "Gain experience or certifications related to relational DB modeling and query design.",
+          "Add details of system design achievements or pipeline design."
+        ]
+      }
+    },
+    {
+      "id": "cand-3",
+      "name": "Chloe Vance",
+      "email": "chloe.vance@designstudio.io",
+      "phone": "+1 (555) 211-5582",
+      "activeJobId": "job-2",
+      "status": "Screened",
+      "uploadedAt": "2026-06-17T09:00:00.000Z",
+      "resumeFileName": "chloe_vance_product_design.pdf",
+      "resumeText": "CHLOE VANCE\nSenior Visual & Interaction Designer | Figma Expert | User Discovery\nEmail: chloe.vance@designstudio.io | Phone: +1 (555) 211-5582\nSkills: Figma, Design Systems, Wireframing, User Research, Prototyping, Adobe Creative Cloud, Typography\n\nExperience:\nUX Design Specialist at Greenhouse Soft (2022 - Present)\n- Built interactive mockups and standardized spacing catalogs.\n- Led recruiter workflow feedback study with over 40 corporate representatives.\nVisual Designer at PixelForge (2020 - 2022)\n- Formed identity systems and vector design assets.\n\nEducation:\nBFA in Communication Design, Pratt Institute",
+      "analysis": {
+        "atsScore": 85,
+        "skillsMatch": 88,
+        "keywordMatch": 80,
+        "experienceMatch": 90,
+        "educationMatch": 80,
+        "matchBreakdown": {
+          "skills": 88,
+          "keywords": 80,
+          "experience": 90,
+          "education": 80
+        },
+        "skills": [
+          "Figma",
+          "Design Systems",
+          "Wireframing",
+          "User Research",
+          "Prototyping",
+          "Adobe Creative Cloud",
+          "Typography",
+          "UI/UX Design"
+        ],
+        "education": [
+          "BFA in Communication Design, Pratt Institute (2020)"
+        ],
+        "projects": [
+          "Recruiter ATS Interactive Design System",
+          "Ecommerce Unified Mobile Checkout overhaul"
+        ],
+        "certifications": [],
+        "experience": [
+          "UX Design Specialist at Greenhouse Soft (2022 - Present): Maintained a standard figma workspace consisting of over 300 UI components, organized user research sessions.",
+          "Visual Designer at PixelForge (2020 - 2022): Shaped interactive user menus and micro-animations, oversaw pixel layouts."
+        ],
+        "softSkills": [
+          "Empathy Advocacy",
+          "Aesthetic Strategy",
+          "Active Team Synthesizer"
+        ],
+        "strengths": [
+          "Exceptional Figma craftsmanship with high-end, responsive system construction",
+          "Deep practical immersion in UX discovery, feedback loops, and design sprints"
+        ],
+        "weaknesses": [
+          "No direct resume documentation indicating Tailwind CSS coding proficiency"
+        ],
+        "missingSkills": [
+          "Tailwind CSS"
+        ],
+        "improvementSuggestions": [
+          "Mention basic static web builds or HTML/Tailwind styling contributions to facilitate better handoffs with engineering."
+        ]
+      }
+    },
+    {
+      "id": "cand-4",
+      "name": "Marcus Chen",
+      "email": "marcus.m.chen@analyticsnet.org",
+      "phone": "+1 (555) 723-9911",
+      "activeJobId": "job-3",
+      "status": "Rejected",
+      "uploadedAt": "2026-06-17T15:45:00.000Z",
+      "resumeFileName": "marcus_chen_data.pdf",
+      "resumeText": "MARCUS CHEN\nData Analyst with 3 years of experience. Machine Learning, Python, Pandas, SQL.\nEmail: marcus.m.chen@analyticsnet.org | Phone: +1 (555) 723-9911\nSkills: Python, SQL, PostgreSQL, Pandas, NumPy, Tableau, Machine Learning, Git\n\nExperience:\nData Analyst at FinMetric Corp (2023 - Present)\n- Configured PostgreSQL dashboard queries.\n- Trained predictive models using Scikit-Learn.\n\nEducation:\nBS in Applied Mathematics, University of Michigan",
+      "analysis": {
+        "atsScore": 65,
+        "skillsMatch": 60,
+        "keywordMatch": 70,
+        "experienceMatch": 68,
+        "educationMatch": 70,
+        "matchBreakdown": {
+          "skills": 60,
+          "keywords": 70,
+          "experience": 68,
+          "education": 70
+        },
+        "skills": [
+          "Python",
+          "SQL",
+          "PostgreSQL",
+          "Pandas",
+          "NumPy",
+          "Machine Learning",
+          "Git"
+        ],
+        "education": [
+          "BS in Applied Mathematics, University of Michigan (2023)"
+        ],
+        "projects": [
+          "Fraud Detection Pattern Models",
+          "Customer Churn Analysis and SQL triggers"
+        ],
+        "certifications": [],
+        "experience": [
+          "Data Analyst at FinMetric Corp (2023 - Present): Wrote structured CTEs, clean pipeline migrations, designed basic clustering templates."
+        ],
+        "softSkills": [
+          "Methodical Integrity",
+          "Collaborative Integration"
+        ],
+        "strengths": [
+          "Competent math and core numerical stack mastery (Python, NumPy, Pandas)",
+          "Great foundational SQL schema architecture and basic forecasting models"
+        ],
+        "weaknesses": [
+          "Missing modern Natural Language Processing (NLP) or conversational LLM integrations",
+          "Lacks frameworks like PyTorch or TensorFlow for advanced generative pipelines"
+        ],
+        "missingSkills": [
+          "NLP",
+          "Large Language Models",
+          "PyTorch",
+          "Data Science",
+          "TensorFlow",
+          "Data Engineering"
+        ],
+        "improvementSuggestions": [
+          "Develop open-source project models using Gemini API or Langchain to showcase AI grounding capabilities.",
+          "Learn deep learning libraries like PyTorch or TensorFlow."
+        ]
+      }
+    }
+  ]
+}

@@ -7,6 +7,7 @@ export interface User {
 
 export interface JobDescription {
   id: string;
+  recruiterId?: string;
   title: string;
   department: string;
   location: string;
@@ -54,6 +55,7 @@ export interface ResumeAnalysis {
 
 export interface Candidate {
   id: string;
+  recruiterId?: string;
   name: string;
   email: string;
   phone?: string;

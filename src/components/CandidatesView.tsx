@@ -53,9 +53,20 @@ export default function CandidatesView({
   // Trigger status updates on the server
   const handleStatusChange = async (id: string, newStatus: Candidate['status']) => {
     try {
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
       const response = await fetch(`/api/candidates/${id}/status`, {
         method: 'PUT',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
         body: JSON.stringify({ status: newStatus })
       });
       if (!response.ok) throw new Error('Failed to update status.');
@@ -77,7 +88,20 @@ export default function CandidatesView({
   const handleConfirmDelete = async (id: string) => {
     setCandidateToDelete(null);
     try {
-      const response = await fetch(`/api/candidates/${id}`, { method: 'DELETE' });
+      const savedRecruiter = localStorage.getItem('talentflow_recruiter');
+      let token = '';
+      if (savedRecruiter) {
+        try {
+          token = JSON.parse(savedRecruiter).token || '';
+        } catch {}
+      }
+
+      const response = await fetch(`/api/candidates/${id}`, { 
+        method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      });
       if (!response.ok) throw new Error('Failed to delete candidate.');
       onDeleteCandidate(id);
       displaySuccess('Candidate record deleted successfully from the talent pool.');
